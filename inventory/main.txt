@@ -1,0 +1,10 @@
+db_node1 ansible_host=100.24.35.152 ansible_connection=ssh ansible_user=ec2-user ansible_port=22 
+web_node1 ansible_host=54.210.35.158 ansible_connection=ssh ansible_user=ec2-user ansible_port=22 
+web_node2 ansible_host=34.201.172.191 ansible_connection=ssh ansible_user=root ansible_port=22 
+
+[db-servers]
+db_node1
+
+[web-servers]
+web_node1
+web_node2

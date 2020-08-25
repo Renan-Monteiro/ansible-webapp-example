@@ -1,0 +1,20 @@
+#- name: Deploy Instances
+#  hosts: localhost
+#  roles:
+#    - { role: ec2 }
+
+- name: Deploy Mysql
+  hosts: db-servers
+  become: yes
+  become_user: root
+  roles:
+    - { role: commons }
+    - { role: mysql-db }
+
+- name: Deploy Web Servers
+  hosts: web-servers
+  become: yes
+  become_user: root
+  roles:
+    - { role: commons }
+    - { role: web-servers }

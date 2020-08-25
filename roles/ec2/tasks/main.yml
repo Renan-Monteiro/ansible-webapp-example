@@ -1,0 +1,27 @@
+- name: Provisioning Database Instance
+  ec2:
+    key_name: my_ansible_key
+    instance_type: t2.micro
+    image: ami-0bcc094591f354be2
+    wait: yes
+    group_id: sg-0c8e27e120489a974
+    region: us-east-1
+    count: 1
+    vpc_subnet_id: subnet-07a2722e0c4c049d6
+    assign_public_ip: yes
+    instance_tags:
+       db: mysql
+
+- name: Provisioning Webservers Instances
+  ec2:
+    key_name: my_ansible_key
+    instance_type: t2.micro
+    image: ami-0bcc094591f354be2
+    wait: yes
+    region: us-east-1
+    group_id: sg-0c8e27e120489a974
+    count: 2
+    vpc_subnet_id: subnet-07a2722e0c4c049d6
+    assign_public_ip: yes
+    instance_tags:
+       db: webservers

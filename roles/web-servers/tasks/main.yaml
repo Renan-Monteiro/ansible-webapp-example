@@ -1,0 +1,23 @@
+    - name: Install Python Flask dependencies
+      pip:
+        name: '{{ item }}'
+        state: present
+      with_items:
+       - flask
+       - flask-mysql
+
+    - name: Install git
+      apt:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - git-all
+
+    - name: Git clone
+      git:
+        repo: 'https://github.com/mmumshad/simple-webapp-flask.git'
+        dest: /tmp/simple-webapp
+        update: yes
+
+    - name: Start web-application
+      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
