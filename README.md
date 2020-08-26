@@ -5,7 +5,7 @@ This project shows how to deploy an webapp in AWS with Ansible.
 For that we follows the steps bellow:
 
 ##    1. Deploy EC2 instances, 1 for mysql and 2 for web-servers.
-##    2. Install and configure de dependencies.
+##    2. Install and configure dependencies.
 ##    3. Install mysql on dbserver.
 ##    4. Install python and flask on webservers.
 ##    5. Download source app from github.
